@@ -39,7 +39,10 @@ If you are installing and running the project on your local machine and not on t
 1. [Django](https://www.djangoproject.com/download/) (version >= 1.6.5)
 2. [PostgreSQL](http://www.postgresql.org/download/) (version >= 9.3.4)
 
-**Skip this step if you are installing and running the project on the PeaceCorps VM, as Django and PostgreSQL are already included in the PeaceCorps VM.**
+Skip the next two sections if not using the PeaceCorps VM and jump to the section '**Install Project Dependencies**'. 
+
+
+**Skip this section if you are installing and running the project on the PeaceCorps VM, as Django and PostgreSQL are already included in the PeaceCorps VM.**
 
 ## Install VirtualBox and Vagrant
 
@@ -123,7 +126,27 @@ Install project dependencies:
     sudo apt-get install libpq-dev
     sudo apt-get install python-pip
 
+Install Python's Virtual Environment (**Only for users not using Peacecorp's VM**)
+
+    sudo pip install virtualenv
+    
+Create Python's Virtual Environment (**Only for users not using Peacecorp's VM**), by moving to the top level directory of the project containing **manage.py** and create your virtual environment, type :
+
+    virtualenv venv
+    
+Activate Python's Virtual Environment (**Only for users not using Peacecorp's VM**)
+
+    source venv/bin/activate
+    
+Now, your prompt will change to indicate that you are now operating within the virtual environment. It will look something like this (venv)user@host:~/myproject$.
+
+**From here on the process is same whether using Peacecorp's VM or not**
+
 Install all Python dependencies specified in the [requirements.txt](https://github.com/systers/app-web-server/blob/develop/requirements.txt) file using pip:
+    
+    sudo pip install -r requirements.txt
+    
+Or install one by one
 
     sudo pip install Django==1.6.5
     sudo pip install Jinja2==2.7.3
@@ -274,13 +297,13 @@ Start the development server by running the command (this runs the development s
 
 ## Try out Mobile App Control Center
 
-You can now try out the project by going to [http://localhost:8001](http://localhost:8001) on a browser on your local machine.
+You can now try out the project by going to [http://localhost:8000](http://localhost:8000) on a browser on your local machine.
 
 Try logging in with your superuser credentials. After clicking on `Submit` you will get the following message:
 
     No Pcuser associated! Add a pcuser from admin
 
-We need to create a pcuser that is associated with the superuser we created previously. To do this, go to the Django admin panel at [http://localhost:8001/admin](http://localhost:8001/admin) on your browser.
+We need to create a pcuser that is associated with the superuser we created previously. To do this, go to the Django admin panel at [http://localhost:8000/admin](http://localhost:8000/admin) on your browser.
 
 On the Django admin login page, login with your superuser credentials.
 
@@ -298,7 +321,7 @@ Verified: 1 (not sure what this field does)
 ```
 Click on `Save` and logout.
 
-Go back to [http://localhost:8001](http://localhost:8001)
+Go back to [http://localhost:8000](http://localhost:8000)
 
 Login again with your superuser credentials, it should work since we have associated our superuser with a pcuser. You are now free to try out the application.
 

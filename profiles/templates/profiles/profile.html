@@ -7,51 +7,55 @@ email : ranihaileydesai@gmail.com
 
 
 <!-- page for the profile of a user -->
+<!DOCTYPE html>
 <html>
     <head>
         <title>User Profile | {{profiler.user.first_name}}</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="resets.css" type="text/css"> 
+        <link rel="stylesheet" href="style.css" type="text/css"> 
+        <link rel="stylesheet" href="profile.css" type="text/css"> 
+<style>{% include "resets.css" %} 
+	{% include "style.css" %}
+	{% include "profile.css" %}
+</style>
     </head>
     <body>
-        {% include "header.html" %}
-        <br><br><br><br><br><br>
-        
-        <div style="width:600px; height:400px; margin:0 auto; background-color:#0d8b97;">
-        <br>
-        <center><b><h3><font color="white">User Profile</font></h3></b></center>
-        <br>
-        <div class="row">
-            <div class="col-md-1">
-            </div>
-            <div class="col-md-6">
-                <font color="white"><br>
-                <h4><b>First Name    :</b>  {{profiler.user.first_name}}</h4>
-                <h4><b>Last Name     :</b>  {{profiler.user.last_name}}</h4>
-                <h4><b>Email Address :</b>  {{profiler.user.email}}</h4>
-                <h4><b>Mobile       :</b>  {{profiler.phone}} </h4>
-                <h4><b>Gender        :</b>  {{profiler.gender}}</h4>
-                <h4><b>Location      :</b>  {{profiler.location}} </h4></font>
-                
-            </div>
-            <div class="col-md-4">
-                <figure>
-                    <img src={{profiler.image}} class="img-responsive" style="width:350px; height:180px; border:2px solid #2c0f00;">
-                    <figcaption style="background-color: #2c0f00; padding-top:1px; padding-bottom:1px;"><center><font color="#e2d7bb"><b><h4>User {{profiler.user}}</h4></b></font></center></figcaption>
-                </figure>
-            </div>
+    
+    <!--Header-->
+    {% include "header.html" %}
+    
+    <!--content-->
+    <section class="row">
+        <div class="content">
             
-            <div class="col-md-1">
-            </div>
-        </div><br>
-        <center>
-            {% if profiler.user.username == pcuser.user.username %}
-            <button class="btn" type="button" onclick="window.location.href='/edit_profile_page/?id={{profiler.id}}'">Edit Profile</button>
-            {% endif %}
-            <button class="btn" type="button" onclick="window.location.href='/change_pass_page/'">Change Password</button>
-        </center>
-        
-        
+                <h3>User profile</h3>
+                <div class="image">
+                <img src={{profiler.image}} >
+                <h4>User | {{profiler.user}}</h4>
+                <p>...</p>
+                </div>
+                <ul>
+                    <li><span>First Name</span>: {{profiler.user.first_name}}</li>
+                    <li><span>Last Name</span>: {{profiler.user.last_name}}</li>
+                    <li><span>Email Address</span>: {{profiler.user.email}}</li>
+                    <li><span>Mobile</span>:   {{profiler.phone}} </li>
+                    <li><span>Gender</span>:   {{profiler.gender}}</li>
+                    <li><span>Location</span>:   {{profiler.location}} </li>
+                </ul>
+                <div class="options">
+                    {% if profiler.user.username == pcuser.user.username %}
+                    <div class="btn"><a href="javascript:void(0)" onclick="window.location.href='/edit_profile_page/?id={{profiler.id}}'">Edit Profile</a></div>
+                    {% endif %}
+                    <div class="btn"><a href="javascript:void(0)" onclick="window.location.href='/change_pass_page/'">Change Password</a></div>
+                </div>
         </div>
-        <br><br>
-        {% include "footer.html" %}
+        
+    </section>
+    <!-- footer-->
+    {% include "footer.html" %}
+    
     </body>
 </html>

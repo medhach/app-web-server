@@ -1,65 +1,18 @@
-<!-- 
-Version : Phython/Django 2.7.6, PostgreSQL 9.3.4
-Author : Vaibhavi Desai
-Github username : desaivaibhavi
-email : ranihaileydesai@gmail.com
--->
-
-<!--the common footer of all tha pages has been formatted in this file -->
-
-<!--css portion -->
-
 <style>
-
-*{
-margin: 0;
-    }
-
-html, body {
-height: 100%;
-}
-
-.footerBkg {
-    background-color: #e2d7bb;
-    width: 100%;
-    padding: 30px 0px;
-    text-align: center;
-    font-size: 13px;
-    color: rgb(255, 255, 255);
-    line-height: 26px;
-}
-div{
-    margin: 0px;
-    padding: 0px;
-    border: 0px none;
-    font: inherit;
-    vertical-align: baseline;
-}
-
+{% include "resets.css" %}
+{% include "style.css" %}
 </style>
-
-
-<!--html portion starts here -->
-<div class="footerBkg">
-   
-    
-			<div class="footerBtns"><font size="4" color="#2c0f00">
-				<a href="/aboutPC" title="Home" style="color:2c0f00;">About Peace Corps</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-				<a href="/policies/" title="Know about our team" style="color:2c0f00;">Policies</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="/details/" title="FAQs" style="color:2c0f00;">Important Details</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-				<a href="/helpPC/" title="Contact Us" style="color:2c0f00;">Help</a>&nbsp;&nbsp;
-				<br><br>
-				</font>
-            </div>
-    
-    
-
-    
-    
-    
-
-    
-			<p style="color:2c0f00;">&copy;2014 PeaceCrops</p>
-			
-			<a href="#top" style="color:2c0f00;"><font size="2">Return to Top</font></a>
+<section class="footer">
+		<div class="container">
+			<nav>
+				<ul>
+					<li><a href="/aboutPC" title="Home" >About Peace Corps</a> </li>
+					<li><a href="/policies/" title="Know about our team" >Policies </a></li>
+					<li><a href="/details/" title="FAQs">Important Details</a></li>
+					<li><a href="/helpPC/" title="Contact Us"">Help</a></li>
+				</ul>
+			<nav>
+			<p>&copy 2014 PeaceCorps</p>
+			<a href="#top">Return to top</a>
 		</div>
+	</section>

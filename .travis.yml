@@ -8,4 +8,5 @@ install:
 before_script:
   - psql -c "create role myuser with createrole createdb login password 'mypassword';" -U postgres
   - psql -c "create database webapp;" -U postgres
-script: python manage.py test
+  - export DJANGO_SETTINGS_MODULE="infohub.settings"
+script: python manage.py test --settings=infohub.settings
