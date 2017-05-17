@@ -9,6 +9,10 @@ class SafetyToolsCategory(models.Model):
 
     def __unicode__(self):
         return self.category_name
+        
+    class Meta:
+    	verbose_name = 'Safety Tools Category'
+    	verbose_name_plural = 'Safety Tools Categories'
 
 
 class SafetyToolsPost(models.Model):
@@ -19,3 +23,7 @@ class SafetyToolsPost(models.Model):
 
     def __unicode__(self):
         return self.title
+        
+    class Meta:
+    	verbose_name = 'Safety Tools Post'
+    	verbose_name_plural = 'Safety Tools Posts'

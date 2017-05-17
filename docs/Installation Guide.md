@@ -4,19 +4,19 @@
 This tutorial assumes that the user is installing and running the project under the Ubuntu Virtual Machine that is provided by PeaceCorps.
 
 ## Table of Contents
-1. [Install git](https://github.com/systers/app-web-server/blob/develop/docs/Installation%20Guide.md#install-git)
-2. [Clone Project](https://github.com/systers/app-web-server/blob/develop/docs/Installation%20Guide.md#clone-project)
-3. [Install Django and PostgreSQL](https://github.com/systers/app-web-server/blob/develop/docs/Installation%20Guide.md#install-django-and-postgresql)
-4. [Install VirtualBox and Vagrant](https://github.com/systers/app-web-server/blob/develop/docs/Installation%20Guide.md#install-virtualbox-and-vagrant)
-5. [Download PeaceCorps Ubuntu Virtual Machine](https://github.com/systers/app-web-server/blob/develop/docs/Installation%20Guide.md#download-peacecorps-ubuntu-virtual-machine)
-6. [Using Vagrant](https://github.com/systers/app-web-server/blob/develop/docs/Installation%20Guide.md#using-vagrant)
-7. [Install Project Dependencies](https://github.com/systers/app-web-server/blob/develop/docs/Installation%20Guide.md#install-project-dependencies)
-8. [Setup PostgreSQL](https://github.com/systers/app-web-server/blob/develop/docs/Installation%20Guide.md#setup-postgresql)
-9. [Update settings.py](https://github.com/systers/app-web-server/blob/develop/docs/Installation%20Guide.md#update-settingspy)
-10. [Generate Database Tables Corresponding to Django Models](https://github.com/systers/app-web-server/blob/develop/docs/Installation%20Guide.md#generate-database-tables-corresponding-to-django-models)
-11. [Run Development Server](https://github.com/systers/app-web-server/blob/develop/docs/Installation%20Guide.md#run-development-server)
-12. [Try out Mobile App Control Center](https://github.com/systers/app-web-server/blob/develop/docs/Installation%20Guide.md#try-out-mobile-app-control-center)
-13. [Exit the Virtual Machine](https://github.com/systers/app-web-server/blob/develop/docs/Installation%20Guide.md#exit-the-virtual-machine)
+1. [Install git](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md#install-git)
+2. [Clone Project](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md#clone-project)
+3. [Install Django and PostgreSQL](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md#install-django-and-postgresql)
+4. [Install VirtualBox and Vagrant](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md#install-virtualbox-and-vagrant)
+5. [Download PeaceCorps Ubuntu Virtual Machine](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md#download-peacecorps-ubuntu-virtual-machine)
+6. [Using Vagrant](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md#using-vagrant)
+7. [Install Project Dependencies](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md#install-project-dependencies)
+8. [Setup PostgreSQL](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md#setup-postgresql)
+9. [Update settings.py](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md#update-settingspy)
+10. [Generate Database Tables Corresponding to Django Models](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md#generate-database-tables-corresponding-to-django-models)
+11. [Run Development Server](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md#run-development-server)
+12. [Try out Mobile App Control Center](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md#try-out-mobile-app-control-center)
+13. [Exit the Virtual Machine](https://github.com/systers/macc/blob/develop/docs/Installation%20Guide.md#exit-the-virtual-machine)
 
 ## Install git
 
@@ -28,15 +28,15 @@ Clone the project from GitHub by running the following command:
 
     git clone project_url_here
 
-For my project, this would correspond to:
+For our project, this would correspond to:
 
-    git clone git@github.com:systers/app-web-server.git
+    git clone https://github.com/systers/macc.git
 
 ## Install Django and PostgreSQL
 
 If you are installing and running the project on your local machine and not on the PeaceCorps VM, then you will need to download and install the following software:
 
-1. [Django](https://www.djangoproject.com/download/) (version >= 1.6.5)
+1. [Django](https://www.djangoproject.com/download/) (version == 1.6.5)
 2. [PostgreSQL](http://www.postgresql.org/download/) (version >= 9.3.4)
 
 Skip the next two sections if not using the PeaceCorps VM and jump to the section '**Install Project Dependencies**'. 
@@ -57,7 +57,7 @@ Install VirtualBox and Vagrant by running the installers.
 
 ## Download PeaceCorps Ubuntu Virtual Machine
 
-A Vagrant file is located in the top level directory for the project (at [https://github.com/systers/app-web-server/blob/develop/Vagrantfile](https://github.com/systers/app-web-server/blob/develop/Vagrantfile) found on GitHub. In case you do not have a copy of this Vagrant file, here are it's contents:
+A Vagrant file is located in the [top level directory for the project.](https://github.com/systers/macc/blob/develop/Vagrantfile) found on GitHub. In case you do not have a copy of this Vagrant file, here are it's contents:
 ```
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
@@ -166,6 +166,10 @@ Or install one by one
 
     sudo pip install autoenv
     echo "source `which activate.sh`" >> ~/.bashrc
+	
+Changing Directory to the cloned directory will automatically resolve export settings error
+
+    cd macc (cloned directory)
     
 ## Setup PostgreSQL
 
@@ -251,10 +255,10 @@ EMAIL_HOST_USER = 'pc.mobile.control.center.com'
 EMAIL_HOST_PASSWORD = 'alphadeltaepsilon'
 EMAIL_PORT = 465
 ```
-Comment out the following lines like so:
+The following lines need to be commented or kept as such if already commented:
 ```
 #import dj_database_url
-#DATABASES['default'] =  dj_database_url.config()
+#DATABASES['default'] = dj_database_url.config()
 ```
 
 ## Generate Database Tables Corresponding to Django Models
@@ -280,6 +284,12 @@ Username: admin
 Email: your email
 Password: mypassword
 ```
+
+If the models are updated in any way, you need to delete the database and then migrating the fields once more. This can be done by:
+
+    python manage.py flush
+    python manage.py syncdb
+
 Check that the tables were created by starting the postgres client and viewing the tables using the `\dt` command.
 ```
 psql -U myuser -d webapp -h localhost -W
@@ -321,7 +331,6 @@ Location: Your location
 Phone: Your phone number
 Gender: Your gender
 Reset pass: 1 (not sure what this field does)
-Imageobj: Pick any random image from your computer
 Verified: 1 (not sure what this field does)
 ```
 Click on `Save` and logout.

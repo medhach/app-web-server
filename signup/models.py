@@ -27,3 +27,9 @@ class Pcuser(models.Model):
      
     def __unicode__(self):
         return self.user.username
+        
+    class Meta:
+    	verbose_name = 'Pcuser'
+    	verbose_name_plural = 'Pcusers'
+
+

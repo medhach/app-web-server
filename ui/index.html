@@ -9,25 +9,26 @@ email : ranihaileydesai@gmail.com
 
 <html>
 <head>
-	<title> Welcome ! </title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title> Welcome ! </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>  
  .ast{
-	color:red;
-	size:11;
-	padding:3;
+    color:red;
+    size:11;
+    padding:3;
+    padding-right:1em
     }
-</style
+</style>
 </head>
 <body>
     
@@ -41,15 +42,13 @@ email : ranihaileydesai@gmail.com
     <form action="/login_do/" method="post">
         <h2>Log in</h2>
         <br>
-        <h4>Username <span class="ast" >*</span></h4></font>
-        <input type="text" name="username" align="right" required>
-        <font color="white"><h4>Password <span class="ast" >*</span> </h4></font>
-        <input type="password" name="password" required>
+        <h4>Username:<span class="ast">*</span></font><input type="text" name="username" align="right" required></h4>
         <br>
-        <a href="/forgot_pass_page/"><b><u><font style="color:#2c0f00;">Forgot Password ?</font></u></b></a>
+        <font color="white"><h4>Password:<span class="ast" >*</span> </font><input type="password" name="password" required></h4>
+        <a href="/forgot_pass_page/"><b><font style="color:#2c0f00; padding-left:4em">Forgot Password?</font></b></a>
         <br><br>
         <input class="btn btn-default" type="submit" name="submit" value="Submit"><br><br>
-        <h4><b><font color="white">New User ?<a href="/signup_page/" style="color:#2c0f00;"><u> Click here to Sign Up !</u></a></font></b></h4>
+        <h4><b><font color="white">New User? <a href="/signup_page/" style="color:#cccc88; font-style: oblique;"><u>Click here</u></a> to Sign Up!</font></b></h4>
     </form>
         <br><br>
     </div>

@@ -1,6 +1,12 @@
 {% extends "infohub/base.html" %}
 
 {% block content %}
+<script> 
+$(window).load(funtion()
+{
+	$('form').get(0).reset();
+});
+</script>
 <br><br><br><br><br><br>
 <center><h2><font color="#2c0f00"> Get Help Now </font></h2></center>
 <div class="well">
@@ -26,7 +32,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label inverted-font">Description</label>
             <div class="col-sm-9">
-                <textarea class="form-control" rows="18" name="description">{% if form.description.value %}{{ form.description.value }}{% endif %}</textarea>
+                <textarea class="form-control" rows="18" name="description" minlength=100>{% if form.description.value %}{{ form.description.value }}{% endif %}</textarea>
                 <p class="help-block inverted-font">
                     <strong>
                         {% if form.description.errors %}

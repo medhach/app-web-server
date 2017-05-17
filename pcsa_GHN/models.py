@@ -10,6 +10,10 @@ class Contact(models.Model):
 
     def __unicode__(self):
         return self.office_name
+        
+    class Meta:
+    	verbose_name = 'Contact'
+    	verbose_name_plural = 'Contacts'
 
 
 class ghnPost(models.Model):
@@ -20,3 +24,7 @@ class ghnPost(models.Model):
 
     def __unicode__(self):
         return self.title
+        
+    class Meta:
+    	verbose_name = 'Get Help Now Post'
+    	verbose_name_plural = 'Get Help Now Posts'

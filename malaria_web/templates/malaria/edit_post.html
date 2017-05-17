@@ -33,7 +33,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label inverted-font">Description <span class="ast" >*</span></label>
             <div class="col-sm-9">
-                <textarea class="form-control" rows="18" name="description_post">{% if form.title_post.value %}{{ form.description_post.value }}{% endif %}</textarea>
+                <textarea class="form-control" rows="18" name="description_post" minlength=100>{% if form.title_post.value %}{{ form.description_post.value }}{% endif %}</textarea>
                 <p class="help-block inverted-font">    
                     <strong>
                         {% if form.description_post.errors %}

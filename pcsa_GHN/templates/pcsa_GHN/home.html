@@ -5,15 +5,15 @@
     <center><h2><font color="#2c0f00"> Get Help Now : Posts </font></h2></center>
 {% if post_list %}
     <div class="well">
-        <a href="{% url 'pcsa_GHN:create_post' %}" class="btn btn-default pull-right">New Post</a>
+        <a href="{% url 'pcsa_GHN:create_post' %}" class="btn btn-default pull-right">Add New Post</a>
         <table class="table">
             <thead>
                 <tr>
                     <th>
-                        <h3 class="inverted-font">Post</h3>
+                        <h3 class="inverted-font"><font color="black">Post</font></h3>
                     </th>
                     <th>
-                        <h3 class="inverted-font">Action</h3>
+                        <h3 class="inverted-font"><font color="black">Description</font></h3>
                     </th>
                 </tr>
             </thead>
@@ -21,10 +21,15 @@
                 {% for post in post_list %}
                     <tr>
                         <td>
-                            <h4 class="inverted-font">
+                            <h3 class="inverted-font">
                                 {{ post.title }}
-                            </h4>
+                            </h3>
                         </td>
+			<td>
+                        <h3 class="inverted-font">
+				{{ post.description|truncatewords:25|linebreaks }}
+			</h3>
+                    </td>
                         <td>
                             <a href="{% url 'pcsa_GHN:view_post' post.id %}" class="btn btn-default">View</a>
                             <a href="{% url 'pcsa_GHN:edit_post' post.id %}" class="btn btn-info">Edit</a>
@@ -50,10 +55,10 @@
             <thead>
                 <tr>
                     <th>
-                        <h3 class="inverted-font">Office</h3>
+                        <h3 class="inverted-font"><font color="black">Ofiice</font></h3>
                     </th>
                     <th>
-                        <h3 class="inverted-font">Contact Number</h3>
+                        <h3 class="inverted-font"><font color="black">Contact Number</font></h3>
                     </th>
                 </tr>
             </thead>

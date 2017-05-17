@@ -26,7 +26,7 @@
         <div class="form-group">
             <label class="col-sm-2 control-label inverted-font">Description</label>
             <div class="col-sm-9">
-                <textarea class="form-control" rows="18" name="description">{% if form.title.value %}{{ form.description.value }}{% endif %}</textarea>
+                <textarea class="form-control" rows="18" name="description" minlength=100>{% if form.title.value %}{{ form.description.value }}{% endif %}</textarea>
                 <p class="help-block inverted-font">    
                     <strong>
                         {% if form.description.errors %}

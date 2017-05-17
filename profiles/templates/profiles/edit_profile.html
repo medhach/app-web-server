@@ -50,25 +50,37 @@ email : ranihaileydesai@gmail.com
                   <td>  <input type="text" name="last_name" value="{{pcuser.user.last_name}}"></td>
 		</tr>
             <tr>
-               <td> <label> <font color="black">Mobile:</font></label></td>
-                  <td>  <input type="text" name="phone" value="{{pcuser.phone}}"></td>
+               <td> <label> <font color="black">Mobile:<span class="ast">*</span></font></label></td>
+                  <td>  <input type="text" name="phone" value="{{pcuser.phone}}" required></td>
             </tr>
                 <tr>
-              <td>  <label><font color="black">Email:</font></label></td>
-                  <td>  <input type="text" name="email" value="{{pcuser.user.email}}"></td>
-            	</tr>
+              <td>  <label><font color="black">Email:<span class="ast">*</span></font></label></td>
+                  <td>  <input type="text" name="email" value="{{pcuser.user.email}}" required></td>
+              </tr>
 		 <tr>
                     <td><label> <b><font color="black">Gender:</font></b></label></td> 
                     <td>
-			<input type="radio" name="gender" value="Male" checked>Male
-			<input type="radio" name="gender" value="Female" checked>Female
-			<input type="radio" name="gender" value="Restricted" checked>Prefer not to say
+
+		{% if pcuser.gender == "Male" %}
+		<h4><input type="radio" name="gender" value="Male" checked>Male</h4>
+		<h4><input type="radio" name="gender" value="Female" >Female</h4>
+		<h4><input type="radio" name="gender" value="Restricted">Prefer not to say</h4>
+		{% elif pcuser.gender == "Female" %}
+		<h4><input type="radio" name="gender" value="Male" >Male</h4>
+		<h4><input type="radio" name="gender" value="Female" checked>Female</h4>
+		<h4><input type="radio" name="gender" value="Restricted" >Prefer not to say</h4>
+		{% elif  pcuser.gender == "Restricted"%}
+		<h4><input type="radio" name="gender" value="Male" >Male</h4>
+		<h4><input type="radio" name="gender" value="Female" >Female</h4>
+		<h4><input type="radio" name="gender" value="Restricted" checked>Prefer not to say</h4>
+		{% endif %}
 		</td>
                 </tr>
-            <tr>
-                <td><label><font color="black">Location: </font></label></td>
-                   <td> <input type="text" name="location" value="{{pcuser.location}}"></td>
-            </tr>
+                <tr>
+                    <td><label><font color="black">Location:<span class="ast">*</span> </font></label></td>
+                    <td><h4><input type="text" name="location" value="{{pcuser.location}}" required></h4></td>
+
+            	</tr>
 		</table>              
                 
                 <div class="options">

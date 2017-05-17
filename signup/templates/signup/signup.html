@@ -9,15 +9,15 @@ email : ranihaileydesai@gmail.com
 
 <html>
 <head>
-	<title> Sign Up </title>
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title> Sign Up </title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-	<!-- Latest compiled JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style>
     .form-outline{
         width:600px;
@@ -25,18 +25,25 @@ email : ranihaileydesai@gmail.com
         margin:0 auto;
         background-color:#0d8b97;
     }
+    .error{
+        color:red;
+        size:12;
+    }
     .ast{
-	color:red;
-	size:11;
-	padding:3;
+        color:red;
+        size:11;
+        padding:3;
     }
     </style>
 </head>
 <body>
     
     {% include "header.html" %}
-    <br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
+    <center class= "error"><p> {{text}}</p></center>
+    <br>
     
+        
     <center>
     <font color="white">
     <div class="form-outline" >
@@ -50,13 +57,13 @@ email : ranihaileydesai@gmail.com
         
         <div class="controls">
                 <label class="radio-inline">
-	                   <input maxlength=100 type="radio" name="gender" value="male" checked>Male
+                       <input maxlength=100 type="radio" name="gender" value="male" checked>Male
                 </label>
-	            <label class="radio-inline">
-	                   <input maxlength=100 type="radio" name="gender" value="female">Female
+                <label class="radio-inline">
+                       <input maxlength=100 type="radio" name="gender" value="female">Female
                 </label>
-		<label class="radio-inline">
-	                   <input maxlength=100 type="radio" name="gender" value="restricted">Prefer not to say
+        <label class="radio-inline">
+                       <input maxlength=100 type="radio" name="gender" value="restricted">Prefer not to say
                 </label>
        </div>
         

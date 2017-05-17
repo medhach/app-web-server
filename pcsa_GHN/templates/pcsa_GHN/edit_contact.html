@@ -1,12 +1,18 @@
 {% extends "infohub/base.html" %}
 
 {% block content %}
+<script> 
+$(window).load(funtion()
+{
+	$('form').get(0).reset();
+});
+</script>
 <br><br><br><br><br><br>
 <center><h2><font color="#2c0f00">Get Help Now</font> </h2></center>
 <div class="well">
     <h2 class="text-center inverted-font">Edit Contact</h2>
     <br>
-    <form class="form-horizontal" action="{% url 'pcsa_GHN:edit_contact' contact.id %}" method="post">
+    <form class="form-horizontal" action="{% url 'pcsa_GHN:edit_contact' contact.id %}" autocomplete="off" method="post">
         {% csrf_token %}
         <div class="form-group">
             <label class="col-sm-2 control-label inverted-font">Office address</label>

@@ -128,16 +128,14 @@ h1{
 
 .box .btn{
 	clear: both;
-	font: 16px/30px arial, verdana;
-	
+	font: 16px/30px arial, verdana;	
 	width: 100px;
 	text-align: center;
-	margin: 20px auto;
+	margin: 20px;
 	background: #eee;
-	background: linear-gradient(#888,#fff);
 	color: #000;
 	border-radius: 6px;
-	padding: 6px;
+	padding: 9px;
 	cursor: pointer;
 
 }

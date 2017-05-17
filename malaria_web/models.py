@@ -28,6 +28,10 @@ class Post(models.Model):
 
     def __unicode__(self):
         return self.owner.user.username
+        
+    class Meta:
+    	verbose_name = 'Post'
+    	verbose_name_plural = 'Posts'
 
 
 class RevPost(models.Model):
@@ -56,6 +60,10 @@ class RevPost(models.Model):
 
     def __unicode__(self):
         return self.owner_rev.user.username
+        
+    class Meta:
+    	verbose_name = 'Reviewed Post'
+    	verbose_name_plural = 'Reviewed Posts'
 
 
 class MalariaUsers(models.Model):

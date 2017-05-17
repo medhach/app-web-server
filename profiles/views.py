@@ -2,9 +2,11 @@ import uuid
 
 import jinja2
 from django.contrib.auth import authenticate, login, logout
+from django.utils.decorators import method_decorator
+from django.http import HttpResponseForbidden
 from django.contrib.auth.models import User
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.cache import cache_control
 from jinja2.ext import loopcontrols
@@ -59,9 +61,9 @@ def profile(request):
         if pcuserid == request.user.pcuser.pk:
             return HttpResponse(jinja_environ.get_template('profile.html').render({"pcuser":request.user.pcuser, "profiler":request.user.pcuser}))
         else:
-            return HttpResponse(jinja_environ.get_template('profile.html').render({"pcuser":request.user.pcuser, "profiler":Pcuser.objects.get(pk=pcuserid)}))
+            return HttpResponse(jinja_environ.get_template('profile.html').render({"pcuser":request.user.pcuser, "profiler":request.user.pcuser}))
     except:
-        return HttpResponse(jinja_environ.get_template('profile.html').render({"pcuser":request.user.pcuser, "profiler":request.user.pcuser}))
+        return HttpResponseForbidden("You can't view someone else's details")
 
 
 #Calls the edit profile page. The autofill data is sent too.
@@ -70,7 +72,7 @@ def edit_profile_page(request):
     if not request.user.is_authenticated():
         return HttpResponse(jinja_environ.get_template('index.html').render({"pcuser":None}))
     pcuserid = request.REQUEST['id']
-    return HttpResponse(jinja_environ.get_template('edit_profile.html').render({"pcuser":Pcuser.objects.get(pk=pcuserid)}))
+    return HttpResponse(jinja_environ.get_template('edit_profile.html').render({"pcuser":request.user.pcuser}))
 
 #Edit profile function. Called after a user presses done in edit profile. New data is requested from frontend and stored.
 @csrf_exempt
@@ -120,7 +122,6 @@ def edit_profile(request):
                                                                           "text":'Profile edit successful.',"text1":'Click here to view the profile.',"link":'/profile/?id='+ str(request.user.pcuser.id)}))
 
 #Forgot Password page call function.
-@login_required(login_url='/login_do/')
 def forgot_pass_page(request):
     if request.user.is_authenticated():
         return HttpResponse(jinja_environ.get_template('notice.html').render({"pcuser":request.user.pcuser,
@@ -133,7 +134,6 @@ def forgot_pass_page(request):
 
 #Called when the user clicks forgot password after the data is validated. This sends a verification mail to the user.
 @csrf_exempt
-@login_required(login_url='/login_do/')
 def forgot_pass(request):
     if request.user.is_authenticated():
         return HttpResponse(jinja_environ.get_template('notice.html').render({"pcuser":None,
@@ -172,7 +172,6 @@ def forgot_pass(request):
     
 #Reset Password page call function.
 @csrf_exempt
-@login_required(login_url='/login_do/')
 def reset_pass_page(request):
     if request.user.is_authenticated():
         return HttpResponse(jinja_environ.get_template('notice.html').render({"pcuser":request.user.pcuser,

@@ -12,3 +12,7 @@ class PcsaPost(models.Model):
 
     def __unicode__(self):
         return self.owner.user.username
+        
+    class Meta:
+    	verbose_name = 'Pcsa Post'
+    	verbose_name_plural = 'Pcsa Posts'
